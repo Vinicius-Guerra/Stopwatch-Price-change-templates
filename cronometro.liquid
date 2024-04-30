@@ -1,0 +1,51 @@
+<!-- INICIO CODIGO - CRONOMETRO -->
+<div class="timer"> 
+   <div class="timer-display">
+     <div class="timer-block"> 
+       <span class="timer-block__num js-timer-hours" id="numhours1">0</span> 
+       <span class="timer-block__unit">Horas</span> 
+     </div> 
+     <div class="timer-block"> 
+       <span class="timer-block__num js-timer-minutes" id="nummins">0</span> 
+       <span class="timer-block__unit">Minutos</span> 
+     </div> 
+     <div class="timer-block"> 
+       <span class="timer-block__num js-timer-seconds" id="numsecs">0</span> 
+       <span class="timer-block__unit">Segundos</span> 
+     </div> 
+   </div> 
+ </div> 
+ <style> 
+.timer { 
+     background: #f6fafd; 
+     padding: 10px; 
+     margin: 10px 0; 
+     border-radius: 15px;
+   } 
+.timer--expired{display:none}.timer__title{@extend .paragraph;text-align:center}.timer-display{display:-webkit-box;display:-ms-flexbox;display:flex;-ms- flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin-top:5px}.timer-block{position :relative;width:25%;padding:0 10px}.timer-block__num,.timer-block__unit{display:block;text-align:center}
+ </style> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+  function updateTimer() {
+      var targetDate = new Date("2024-05-11"); // Data alvo (11 de maio de 2024)
+      var currentDate = new Date();
+      var timeDiff = targetDate - currentDate; // Calcula a diferença de tempo em milissegundos
+  
+      // Converte a diferença de tempo para horas, minutos e segundos
+      var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+  
+      // Atualiza os campos HTML com os novos valores
+      $(".js-timer-hours").text(hours);
+      $(".js-timer-minutes").text(minutes);
+      $(".js-timer-seconds").text(seconds);
+  }
+  
+  // Chamamos a função a cada segundo para atualizar o contador
+  setInterval(updateTimer, 1000);
+  </script>
+<p style="text-align:center">Essa promoção acaba no dia 11/04 ou enquanto durar o estoque...</p>
+<!-- FIM CODIGO - CRONOMETRO -->
